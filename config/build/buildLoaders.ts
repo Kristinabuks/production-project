@@ -6,8 +6,10 @@ import { BuildOptions } from "./types/config";
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = {
-      test: /\.svg$/,
-      type: 'asset/resource',
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      resourceQuery: { not: [/url/] }, 
+      use: ['@svgr/webpack'],
     }
 
     const fileLoader = {
