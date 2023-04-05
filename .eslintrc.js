@@ -10,6 +10,12 @@ module.exports = {
         'plugin:i18next/recommended'
     ],
     overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off'
+                }
+        }
     ],
     parserOptions: {
         ecmaFeatures: {
@@ -31,7 +37,7 @@ module.exports = {
             2, 
             {
                 markupOnly: true, 
-                ignoreAttribute: ['to']
+                ignoreAttribute: ['to', 'data-testid']
             }
         ],
         '@typescript-eslint/naming-convention': [1],
@@ -42,5 +48,5 @@ module.exports = {
               "checksVoidReturn": false
             }
           ]
-    }
+    },
 }
